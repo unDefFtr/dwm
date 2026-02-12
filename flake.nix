@@ -17,14 +17,24 @@
           version = "local";
           src = self;
 
-          nativeBuildInputs = [ pkgs.pkg-config ];
+          nativeBuildInputs = [
+            pkgs.pkg-config
+            pkgs.autoPatchelfHook
+            pkgs.patchelf
+          ];
           buildInputs = [
-            pkgs.xorg.libX11
-            pkgs.xorg.libXinerama
-            pkgs.xorg.libXft
+            pkgs.libx11
+            pkgs.libxinerama
+            pkgs.libxft
+            pkgs.libxrender
+            pkgs.fontconfig
           ];
 
-          makeFlags = [ "PREFIX=$(out)" ];
+          makeFlags = [
+            "PREFIX=$(out)"
+            "CFLAGS=$NIX_CFLAGS_COMPILE"
+            "LDFLAGS=$NIX_LDFLAGS"
+          ];
           installTargets = [ "install" ];
 
           meta = with pkgs.lib; {
@@ -45,10 +55,13 @@
 
         devShells.default = pkgs.mkShell {
           buildInputs = [
-            pkgs.xorg.libX11
-            pkgs.xorg.libXinerama
-            pkgs.xorg.libXft
+            pkgs.libx11
+            pkgs.libxinerama
+            pkgs.libxft
+            pkgs.libxrender
+            pkgs.fontconfig
             pkgs.pkg-config
+            pkgs.patchelf
           ];
         };
       }
