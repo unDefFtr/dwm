@@ -44,6 +44,9 @@
             "LDFLAGS=$NIX_LDFLAGS"
           ];
           installTargets = [ "install" ];
+          postInstall = ''
+            install -Dm644 ${./dwm.desktop} $out/share/xsessions/dwm.desktop
+          '';
 
           meta = with pkgs.lib; {
             description = "dynamic window manager";
