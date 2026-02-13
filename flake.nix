@@ -23,11 +23,19 @@
             pkgs.patchelf
           ];
           buildInputs = [
-            pkgs.libx11
-            pkgs.libxinerama
-            pkgs.libxft
-            pkgs.libxrender
+            pkgs.xorg.libX11.dev
+            pkgs.xorg.libXinerama.dev
+            pkgs.xorg.libXft.dev
+            pkgs.xorg.libXrender.dev
+            pkgs.xorg.xorgproto
+            pkgs.fontconfig.dev
+            pkgs.freetype.dev
+            pkgs.xorg.libX11
+            pkgs.xorg.libXinerama
+            pkgs.xorg.libXft
+            pkgs.xorg.libXrender
             pkgs.fontconfig
+            pkgs.freetype
           ];
 
           makeFlags = [

@@ -86,7 +86,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *rofi[] = { "rofi", "-show", "drun", NULL};
 static const char *termcmd[]  = { "st", NULL };
 static const char *flameshot[] = {"flameshot","gui",NULL};
-static const char *microsoft-edge[] = {"microsoft-edge",NULL};
+static const char *microsoft_edge[] = {"microsoft-edge",NULL};
 static const char *volumeup[] = {"vol-up",NULL};
 static const char *volumedown[] = {"vol-down",NULL};
 static const char *cwall[] = {"refresh-bg",NULL};
@@ -123,7 +123,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flameshot } },
-	{ MODKEY,			XK_e,      spawn,	   {.v = microsoft-edge } },
+	{ MODKEY,			XK_e,      spawn,	   {.v = microsoft_edge } },
 	{ MODKEY,			XK_F10,	   spawn,          {.v = volumedown}},
 	{ MODKEY,			XK_F11,	   spawn,	   {.v = volumeup}},
 	{ MODKEY|ShiftMask,		XK_b,      spawn,	   {.v = cwall } },
@@ -155,4 +155,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
